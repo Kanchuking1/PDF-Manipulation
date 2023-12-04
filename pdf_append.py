@@ -8,11 +8,6 @@ except ImportError:
 def pdf_cat(input_files, output_stream):
     input_streams = []
     try:
-        # First open all the files, then produce the output file, and
-        # finally close the input files. This is necessary because
-        # the data isn't read from the input files until the write
-        # operation. Thanks to
-        # https://stackoverflow.com/questions/6773631/problem-with-closing-python-pypdf-writing-getting-a-valueerror-i-o-operation/6773733#6773733
         for input_file in input_files:
             input_streams.append(open(input_file, 'rb'))
         writer = PdfWriter()
